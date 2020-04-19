@@ -6,29 +6,8 @@ import './App.css';
 
 import { simpleAction } from './actions/simpleAction'
 
-/* 
- * mapDispatchToProps
-*/
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
-})
-
-/* 
- * mapStateToProps
-*/
-const mapStateToProps = state => ({
-  ...state
-})
-
-/**
- * @class App
- * @extends {Component}
- */
 class App extends Component {
-  /**
-   * @memberof App
-   * @summary handles button click 
-   */
+
   simpleAction = (event) => {
     this.props.simpleAction();
   }
@@ -42,7 +21,7 @@ class App extends Component {
         </header>
         <pre>
           {
-            JSON.stringify(this.props)
+            JSON.stringify(this.props.testReducer)
           }
         </pre>
         <button onClick={this.simpleAction}>Test redux action</button>
@@ -53,5 +32,13 @@ class App extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  simpleAction: () => dispatch(simpleAction())
+})
+
+const mapStateToProps = state => ({
+  ...state
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

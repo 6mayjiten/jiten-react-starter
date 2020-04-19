@@ -1,7 +1,7 @@
-/* 
-  src/reducers/simpleReducer.js
-*/
-export default (state = {}, action) => {
+let initialState = {
+    test : "initial state"
+}
+export default (state = initialState , action) => {
   switch (action.type) {
     case 'SIMPLE_ACTION':
       return {
